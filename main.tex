@@ -21,7 +21,7 @@
 \fancyhf{} % Removes the wired header text
 \renewcommand{\headrulewidth}{0pt} % Removes the line under the header
 \cfoot{Side \thepage\ af \pageref{LastPage}} % Sets the right side of the footer to "Page X of Y"
-%\lhead{Gruppe 1} % Sets the left side of the header to "Gruppe 1"
+\lhead{Kristoffer Sørensen} % Sets the left side of the header to "Gruppe 1"
 
 \begin{document}
     % Python environment
@@ -99,7 +99,11 @@ identifierstyle=\color{red}
 
     %\providecommand\NAT
     \input{chapters/01TitlePage.tex}
-    \newpage
+    \input{chapters/02Resume.tex}
+    \input{chapters/03Indhold.tex}
+    \input{chapters/04Opgaveformulering.tex}
+    \input{chapters/05Opgavebesvarelse.tex}
+    \input{chapters/06Konklusion.tex}
     %\bibliography{sources/library}\printbibliography
     \printbibliography[ heading=bibintoc, title={Litteratur}]
     \input{chapters/98Bilag.tex}
