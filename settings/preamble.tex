@@ -1,0 +1,57 @@
+\usepackage[utf8]{inputenc} % uft8 you know
+\usepackage[danish]{babel}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{comment}
+\usepackage[
+backend=biber,
+style=apa,
+sorting=ynt
+]{biblatex}
+\addbibresource{sources/library.bib}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{ragged2e} % for \RaggedRight command
+\usepackage{booktabs} % for \toprule, \midrule, \bottomrule
+\usepackage{pdfpages} % Til at inkludere pdf'er
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{blindtext}
+\usepackage{geometry}
+\usepackage{multirow}
+%\usepackage{natbib} % Works with.bib files
+%\bibliographystyle{apalike} 
+\usepackage{tabularx, booktabs, siunitx} % From now on ist only code styling!
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+morekeywords={self},              % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false,
+breaklines=true
+}}
+
+\usepackage{hyperref}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{blue}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+\usepackage{listings}

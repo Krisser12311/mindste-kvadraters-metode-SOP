@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\input{settings/preamble.tex}
+
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=30mm,
+    bottom=30mm,
+}
+\hypersetup{
+    linkcolor=black,
+    colorlinks=false,
+    pdftitle={SOP - Kristoffer Frøkjær Sørensen},
+    pdfauthor={Kristoffer Frøkjær Sørensen},
+    % Remove the red border around links
+    pdfborder={0 0 0},
+}
+
+\pagestyle{fancy} % definds the pagestyleing
+\fancyhf{} % Removes the wired header text
+\renewcommand{\headrulewidth}{0pt} % Removes the line under the header
+\cfoot{Side \thepage\ af \pageref{LastPage}} % Sets the right side of the footer to "Page X of Y"
+%\lhead{Gruppe 1} % Sets the left side of the header to "Gruppe 1"
+
+\begin{document}
+    % Python environment
+    \lstnewenvironment{python}[1][]
+    {
+    \pythonstyle
+    \lstset{#1}
+    }
+    {}
+    % Python for external files
+    \newcommand\pythonexternal[2][]{{
+    \pythonstyle
+    \lstinputlisting[#1]{#2}}}
+    % Python for inline
+    \newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+    \lstnewenvironment{JavaScript}[3][]
+    {
+    \JavaScriptStyle
+    \lstset{#2}
+    }
+    {}
+
+    \lstloadlanguages{C,C++,csh,Java}
+
+\definecolor{red}{rgb}{0.6,0,0} 
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstset{
+language=csh,
+basicstyle=\footnotesize\ttfamily,
+numbers=left,
+numberstyle=\tiny,
+numbersep=5pt,
+tabsize=2,
+extendedchars=true,
+breaklines=true,
+frame=b,
+stringstyle=\color{blue}\ttfamily,
+showspaces=false,
+showtabs=false,
+xleftmargin=17pt,
+framexleftmargin=17pt,
+framexrightmargin=5pt,
+framexbottommargin=4pt,
+commentstyle=\color{green},
+morecomment=[l]{//}, %use comment-line-style!
+morecomment=[s]{/*}{*/}, %for multiline comments
+showstringspaces=false,
+morekeywords={ abstract, event, new, struct,
+as, explicit, null, switch,
+base, extern, object, this,
+bool, false, operator, throw,
+break, finally, out, true,
+byte, fixed, override, try,
+case, float, params, typeof,
+catch, for, private, uint,
+char, foreach, protected, ulong,
+checked, goto, public, unchecked,
+class, if, readonly, unsafe,
+const, implicit, ref, ushort,
+continue, in, return, using,
+decimal, int, sbyte, virtual,
+default, interface, sealed, volatile,
+delegate, internal, short, void,
+do, is, sizeof, while,
+double, lock, stackalloc,
+else, long, static,
+enum, namespace, string},
+keywordstyle=\color{cyan},
+identifierstyle=\color{red}
+}
+
+    %\providecommand\NAT
+    \input{chapters/01TitlePage.tex}
+    \newpage
+    %\bibliography{sources/library}\printbibliography
+    \printbibliography[ heading=bibintoc, title={Litteratur}]
+    \input{chapters/98Bilag.tex}
+\end{document}
