@@ -12,3 +12,5 @@ main.run.xml
 main.bcf
 main.synctex(busy)
 *.fls
+
+program/env/
