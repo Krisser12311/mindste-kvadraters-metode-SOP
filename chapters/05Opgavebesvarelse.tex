@@ -12,19 +12,27 @@ Du har måske stiftet bekendskab med funktioner af en variabel. Disse funktioner
 For at finde hældningen af tangenten til en funktion af to variable, skal man gå igennem en lidt længere proces end ved funktioner af en variabel. For at finde hældningen af tangenten til funktionen af en variabel, diffrencere man med hensyn til $x$. Et eksempel kunne være $f(x) = x^2$ her er $f'(x) = 2x$. Dette skyldes følgende regneregl: $a \cdot x^n$ bliver til $a \cdot n \cdot x^{n-1}$. Det er dog ikke lige så simpelt at finde hældningen af tangenten, til en funktion af to variable. Her skal man benytte sig af en metode kaldt: Partial differentiation. Ved partial differentiation, tages der fat i en variabel ad gangen. Partial betyder delvis. Grunden til at dette ord anvendes er da man diffrencere mht. $x$ og $y$ i hver deres led (\cite[4]{Larsen2016}). For lige at tage et eksempel så antages det at en funktion hedder: 
 \begin{equation}f(x,y) = x^2 + 3y^2\end{equation}
 Opgaven er her at finde den partial aflededet funktionen $f'(x,y)$. For at finde den partielle afledede for funktionen $f(x,y)$ startes der med at sætte en af variablerne til en konstant. I dette tilfælde sættes $y$ til en konstant. Dette gøres for at man kan nøjes med at diffrencere mht. $x$. Når der diffrenceres med en funktion af en variabel, agives dette sådan: \begin{equation}\frac{d f(x)}{d x}\end{equation} Sådan er det dog ikke ved partial differentiation. Her angives det sådan: \begin{equation}\frac{\partial f(x,y)}{\partial x}\end{equation} Dette er for at vise, at der diffrenceres partielt. Ret simpelt så definere det bløde d ($\partial$) bare at der diffrenceres partielt. Hvis der igen tages udgangspunkt i eksempelet fra før, hvor $f(x,y) = x^2 + 3y^2$. Så ville den partielle afledede af $f(x,y)$ med hensyn til $x$ være: \begin{equation}\frac{\partial f(x,y)}{\partial x} = 2x\end{equation}
-Dette skyldes at $y$ er en konstant og derfor ikke indgår i diffrencering. Der skal nu findes den partielle afledede af $f(x,y)$ med hensyn til $y$. Dette gøres ved at sætte $x$ til en konstant. Dette vil give følgende resultat: \begin{equation}\frac{\partial f(x,y)}{\partial y} = 6y\end{equation} Den partielt aflededet må derfor være $f'(x,y) = 2x + 6y$. Dette er hældningen af tangenten til funktionen $f(x,y)$ i punktet $(x,y)$ (\cite[7-9]{ForberedelsessetMaj2013}).
+Dette skyldes at $y$ er en konstant og derfor ikke indgår i diffrencering. Der skal nu findes den partielle afledede af $f(x,y)$ med hensyn til $y$. Dette gøres ved at sætte $x$ til en konstant. Dette vil give følgende resultat: \begin{equation}\frac{\partial f(x,y)}{\partial y} = 6y\end{equation} Den partielt aflededet må derfor være $f'(x,y) = 2x + 6y$. Dette er hældningen af tangenten til funktionen $f(x,y)$ i punktet $(x,y)$ (\cite{Carstensen2024}).
 
 \subsection{Sådan finder du frem til den bedste funktion}
-For at forstå hvordan der findes frem til den bedste funktion. Tages der udgangspunkt i tre punkter der har følgende kordinatsæt: $(x_1,y_1), (x_2,y_2), (x_3,y_3)$. Der laves nu et start gæt. Der tages nu udgangspnkt i forskriften for en linær linje. $(f(x)=ax+b)$ For at komme videre skal der findes en måde at beskrive afstanden fra punkt til linje. Dette kan gøres på flere måder. Afstanden kunne være den vinkelrette afstand fra linjen ned til punktet, dette er dog ret svært at regne med, og i stedet findes den lodrette afstand fra punkt til linje. Dette gøres ved at finde forsællen i $y-værdierne$. 
+For at forstå hvordan der findes frem til den bedste funktion. Skal der findes frem til en metode hvorpå det er muligt at beskrive hvor god en funktion er.
+Den umilbare bedste måde at beskrive linjen på er ved at kigge på afstanden fra punkt til linje. Dette kan gøres på flere måder. Afstanden kunne være den vinkelrette afstand fra linjen ned til punktet, dette er dog ret svært at regne med, og i stedet findes den lodrette afstand fra punkt til linje.Dette gøres ved at finde forsællen i y-værdierne.
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/afstand.png}
     \caption{Afstand fra punkt til linje}
     \label{fig:afstandFraLinjeTilPunkt}
-\end{wrapfigure}   Dette skaber dog en ting man skal være opmærksom på. Nemlig at der kan være punkter over og under linjen. For at undgå at afstanden udligner hindanden sættes afstanden derfor i anden 
+\end{wrapfigure}   
+Dette skaber dog en ting man skal være opmærksom på. Nemlig at der kan være punkter over og under linjen. For at undgå at afstanden udligner hindanden opløftes afstanden derfor i anden 
 (\cite[2]{ForberedelsessetMaj2013}). Se figur \ref{fig:afstandFraLinjeTilPunkt} for grafisk ilustration 
-Da der nu er styr på hvordan afstanden fra punkt til linje findes. Der skal nu findes en metode hvorpå det er muligt at beskrive afstanden ift linjen. Hvis der startes med at tage udgangspunkt i det første punkt $(x_1,y_1)$ så må distancen fra punktet til linje kunne beskrives som \begin{equation}\label{eq:distance}d_1 = a \cdot x_1 + b - y_1\end{equation} grunden til at $y_1$ fratrækkes, er at y-værdien for linjen ved $x_1$ ville være $y =a \cdot x + b$. På den måde kan afstanden altså bestemmes. Afstanden har på den måde nu dannet en ligning med to ubekendt der beskriver arealet af en kvadrat, da der som nævnt før sættes i anden så må det være det samme som at regne arealet af en kvadrat (\cite{Bentzen2014}). Nu begynder navnte Mindste Kvadraters Metode at give mening. Da målet er at finde den linje hvor Kvadraternes areal er mindst.
-\subsection{Anvendelse af Mindste Kvadraters Metode}
+Da der nu er styr på hvordan afstanden fra punkt til linje findes. Der skal nu findes en metode hvorpå det er muligt at beskrive afstanden ift linjen. Hvis der startes med at tage udgangspunkt i et punkt. Punktet kunne hede hvad somhelst og dog hedder linjen: $y = a \cdot x + b$. Så må afstanden i y-værdien kunne beskrives som \begin{equation}\label{eq:distance}
+    d_n = a \cdot x_n + b - y_n
+\end{equation} grunden til at $y_n$ fratrækkes, er at y-værdien for linjen ved $x_n$ ville være $y =a \cdot x + b$. På den måde kan afstanden altså bestemmes. Afstanden har på den måde nu dannet en ligning med to ubekendt der beskriver arealet af en kvadrat. Da det jo som nævnt før opløftes i anden så må det være det samme som at regne arealet af en kvadrat (\cite{Bentzen2014}). Nu begynder navnte Mindste Kvadraters Metode lige så stille at give mening. Da målet er at finde den linje hvor Kvadraternes areal er mindst. For at regne distance fra punkt til linje for alle punkter anvendes formlen: \ref{eq:distance}, dette skal gøres for alle punkter. Deres fælles areal kan derfor beskrives som følgende:
+\begin{equation}A = \sum_{n=1}^n (a \cdot x_n + b - y_n)^2\end{equation}
+Resultat af denne udregning kunne omskrives til en funktion af to variable, hvor $a$ og $b$ er de ubekendte. Der hvor arealerne er mindst må de to ubekendte danne den best mulige linje. Dette ville kunne ses som et ekstrema, på funktionen af variavble $a$ og $b$. Dette ekstrema findes ved at lave partial diffrencering (Se afsnit \ref{sec:PartieltDifferentiation}) af funktionen med hensyn til $a$ og $b$ og til sidst sætte differentialkvotienterne til 0. Dette skyldes at når hældningen af tangenten er nul så vil der være enten et toppunkt eller minimumspunkt. Der vil nu være dannet to ligninger med to ubekendte. Disse to ligninger kan løses og dermed findes den bedste linje. (\cite{webmatematikMindsteKvadratersMetode})
+
+
+\subsection{Anvendelse af Mindste Kvadraters Metode}\label{sec:udregning}
 % Vis hvordan Mindste Kvadraters Metode kan anvendes på et selvvalgt datasæt (Husk en fortolkning af resultaterne)
 
 
@@ -43,3 +51,7 @@ Da der nu er styr på hvordan afstanden fra punkt til linje findes. Der skal nu 
 
 \section{Diskussion af Kodningsmetoder}
 % While loops, for loops, rekursive funktioner, ect.
+
+\section{Konklusion}
+
+\section{Perspektivering}
