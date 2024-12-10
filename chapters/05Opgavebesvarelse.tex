@@ -1,4 +1,4 @@
-\section{Redegørsel for Mindste Kvadraters Metode}
+\section{Redegørsel for Mindste Kvadraters Metode}\label{sec:redegorsel}
 Antag at du har en række data. Disse data beskriver en sammenhæng mellem tid og distance for en bil. Bilen kører med en konstant hastighed. Du har nu brug for at finde ud af hvor langt bilen har kørt efter 10 sekunder. Dette ingår dog ikke i datasættet. For at finde denne information kunne man fx. opstille en funktion der beskriver denne sammenhæng. For at beskrive denne sammenhæng, kunne Mindste Kvadraters Metode anvendes. Mindste Kvadraters Metode anvendes ofte til at beskrive en ret linje. (\begin{math}y = ax + b\end{math}) En ret linje kan beskrives på mange måder. Dog vil der kun være en linje der beskriver datasætte bedst. For at finde frem til det krever det, at der fordybes i funktioner af to variable, samt hvordan de afledes.
 
 % Redegør for matematikken bag Mindste Kvadraters Metode (Få sammen sat afsnitet funktioner med to variable og Mindste Kvadraters Metode på en god måde)
@@ -29,10 +29,55 @@ Da der nu er styr på hvordan afstanden fra punkt til linje findes. Der skal nu 
     d_n = a \cdot x_n + b - y_n
 \end{equation} grunden til at $y_n$ fratrækkes, er at y-værdien for linjen ved $x_n$ ville være $y =a \cdot x + b$. På den måde kan afstanden altså bestemmes. Afstanden har på den måde nu dannet en ligning med to ubekendt der beskriver arealet af en kvadrat. Da det jo som nævnt før opløftes i anden så må det være det samme som at regne arealet af en kvadrat (\cite{Bentzen2014}). Nu begynder navnte Mindste Kvadraters Metode lige så stille at give mening. Da målet er at finde den linje hvor Kvadraternes areal er mindst. For at regne distance fra punkt til linje for alle punkter anvendes formlen: \ref{eq:distance}, dette skal gøres for alle punkter. Deres fælles areal kan derfor beskrives som følgende:
 \begin{equation}A = \sum_{n=1}^n (a \cdot x_n + b - y_n)^2\end{equation}
-Resultat af denne udregning kunne omskrives til en funktion af to variable, hvor $a$ og $b$ er de ubekendte. Der hvor arealerne er mindst må de to ubekendte danne den best mulige linje. Dette ville kunne ses som et ekstrema, på funktionen af variavble $a$ og $b$. Dette ekstrema findes ved at lave partial diffrencering (Se afsnit \ref{sec:PartieltDifferentiation}) af funktionen med hensyn til $a$ og $b$ og til sidst sætte differentialkvotienterne til 0. Dette skyldes at når hældningen af tangenten er nul så vil der være enten et toppunkt eller minimumspunkt. Der vil nu være dannet to ligninger med to ubekendte. Disse to ligninger kan løses og dermed findes den bedste linje. (\cite{webmatematikMindsteKvadratersMetode})
+Resultat af denne udregning kunne omskrives til en funktion af to variable, hvor $a$ og $b$ er de ubekendte. Der hvor arealerne er mindst må de to ubekendte danne den best mulige linje. Dette ville kunne ses som et ekstrema, på funktionen af variavble $a$ og $b$. Dette ekstrema findes ved at lave partial diffrencering (Se afsnit \ref{sec:PartieltDifferentiation}) af funktionen med hensyn til $a$ og $b$ og til sidst sætte differentialkvotienterne til 0. Dette skyldes at når hældningen af tangenten er nul så vil der være enten et toppunkt eller minimumspunkt. Der vil nu være dannet to ligninger med hvor de ubekendte vil være hhv $a$ og $b$ Disse to ligninger kan løses og dermed findes den bedste linje. (\cite{webmatematikMindsteKvadratersMetode})
 
 
-\subsection{Anvendelse af Mindste Kvadraters Metode}\label{sec:udregning}
+\section{Praktisk anvendelse af Mindste Kvadraters Metode}\label{sec:udregning}
+Med baggrund i afsnit \ref{sec:redegorsel} om redegørsel for Mindste Kvadraters. Kan metoden nu anvendes på datasættet om bilen der kører med konstant hastighed. Datasættet viser sammenhængen mellem tid og den tilbagelagte distance for bilen:
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|} \hline
+        $Tid [s]$ & $Distance [m]$ \\ \hline
+        $1$ & $6$ \\ 
+        $5$ & $6$ \\
+        $6$ & $12$ \\
+        $10$ & $10$ \\ \hline
+    \end{tabular}
+    \caption{Sammenhæng mellem tid og distance.}
+\end{table}\\
+Der skal nu findes frem til den funktion der vil beskrive sammenhængen bedst. Først sættes der en lining op der beskriver alle punkternes kvadrater.
+\begin{equation*}
+    A = (a \cdot 1 + b - 6)^2 + (a \cdot 5 + b - 6)^2 + (a \cdot 6 + b - 12)^2 + (a \cdot 10 + b - 10)^2
+\end{equation*}
+Dette kan ved hjælp af kvadrat sætningen \begin{math}(a+b)^2 = a^2 + b^2 - 2ab\end{math} omskrives til:
+\begin{equation*}
+    4b^2+44ab-68b+162a^2-416a+316
+\end{equation*}
+Dette bliver nu en funktion af to variable, hvor $a$ og $b$ er de ubekendte.
+\begin{equation*}
+    f(a,b) = 4b^2+44ab-68b+162a^2-416a+316
+\end{equation*}
+For at finde ekstrema for funktionen $f(a,b)$ skal der partielt aflededes med hensyn til $a$ og $b$.
+\begin{equation*}
+    \frac{\partial f(a,b)}{\partial a} = 324a - 416
+\end{equation*}
+\begin{equation*}
+    \frac{\partial f(a,b)}{\partial b} = 8b - 68
+\end{equation*}
+Differentialkvotienterne sættes nu til 0.
+\begin{equation*}
+    324a - 416 = 0
+\end{equation*}
+
+\begin{equation*}
+    8b - 68 = 0
+\end{equation*}
+% DETTE ER TOTALT FORKERT
+
+
+
+
+
 % Vis hvordan Mindste Kvadraters Metode kan anvendes på et selvvalgt datasæt (Husk en fortolkning af resultaterne)
 
 
