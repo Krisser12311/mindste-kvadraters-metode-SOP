@@ -49,32 +49,41 @@ Der skal nu findes frem til den funktion der vil beskrive sammenhængen bedst. F
 \begin{equation*}
     A = (a \cdot 1 + b - 6)^2 + (a \cdot 5 + b - 6)^2 + (a \cdot 6 + b - 12)^2 + (a \cdot 10 + b - 10)^2
 \end{equation*}
-Dette kan ved hjælp af kvadrat sætningen \begin{math}(a+b)^2 = a^2 + b^2 - 2ab\end{math} omskrives til:
+Dette udtryk, skal på en eller anden måde udvides, sådan at alle $a$, $b$ og $ab$ værdier samles. Den nok nemmeste måde er at omskrive ligningen for oven, så den i stedet for at være opløftet i anden, er skrevet som: \begin{math}(a \cdot x + b - y)^2 = (a \cdot x + b - y) \cdot (a \cdot x + b - y)\end{math} Dette gøres for alle led. Måden hvorpå udtrykket så kan udvides er ved at gange parenteserne ud. Dette vil give følgende udtryk: 
 \begin{equation*}
-    4b^2+44ab-68b+162a^2-416a+316
+    A= ((a \cdot 1+b-6) \cdot (a \cdot 1+b-6))+((a \cdot 5+b-6) \cdot (a \cdot 5+b-6))+((a \cdot 6+b-12) \cdot (a \cdot 6+b-12))+((a \cdot 10+b-10)) 
 \end{equation*}
-Dette bliver nu en funktion af to variable, hvor $a$ og $b$ er de ubekendte.
+Det udvidet udtryk bliver derfor til: 
 \begin{equation*}
-    f(a,b) = 4b^2+44ab-68b+162a^2-416a+316
+    A=44ab - 68b + 4b^2 - 416a + 162a^2 + 316
 \end{equation*}
-For at finde ekstrema for funktionen $f(a,b)$ skal der partielt aflededes med hensyn til $a$ og $b$.
+Dette bliver nu en funktion af to variable, hvor $a$ og $b$ er de ubekendte. 
 \begin{equation*}
-    \frac{\partial f(a,b)}{\partial a} = 324a - 416
+   f(a,b) = 44ab - 68b + 4b^2 - 416a + 162a^2 + 316 
+\end{equation*}
+For at finde der hvor linje passer bedst, skal der findes det sted hvor arealet er mindst det må være der hvor funktionen $f(a,b)$ har et minimumspunkt. For at finde dette minimumspunkt, skal der tages partielt afledede af funktionen $f(a,b)$ med hensyn til $a$ og $b$. 
+\begin{equation*}
+    \frac{\partial f(a,b)}{\partial a} = 44b + 324a - 416
 \end{equation*}
 \begin{equation*}
-    \frac{\partial f(a,b)}{\partial b} = 8b - 68
+    \frac{\partial f(a,b)}{\partial b} = 8b + 44a - 68
 \end{equation*}
-Differentialkvotienterne sættes nu til 0.
+Disse to difransialkvotienter sættes nu til 0. Dette giver følgende ligningsystem:
 \begin{equation*}
-    324a - 416 = 0
+    44b + 324a - 416 = 0
 \end{equation*}
-
 \begin{equation*}
-    8b - 68 = 0
+    8b + 44a - 68 = 0
 \end{equation*}
-% DETTE ER TOTALT FORKERT
-
-
+Dette ligningsystem kan nu løses med hensyn til $a$ og $b$. Dette giver følgende resultat:
+\begin{equation*}
+    a = 0,5122 
+\end{equation*}
+\begin{equation*}
+    b = 5,68293
+\end{equation*}
+Resultatet af beregningerne af dette datasæt viser at denne metode godt, kan anvendes til at finde en linje der passer bedst til et datasæt. Det kan være svært at konkludere præcist hvor god den er, men resultatet er sat op mod GeoGebra og her stemmer resultaterne overens helt ned til 5 decimal.
+% Dette afsnit skal der lige tages et kig på.
 
 
 

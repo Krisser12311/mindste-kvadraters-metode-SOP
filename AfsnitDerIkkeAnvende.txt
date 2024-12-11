@@ -2,3 +2,29 @@
 Regressionsanalyse er en statistisk metode, der anvendes til at undersøge og modellere sammenhæng mllem en afhængig variabel og en uafhængig variabel. Denne metode er udbredt inden for områder som økonomi, sunhed- og samfunds forskning samt naturvidenskaben. Historisk set blev beregningerne udført manuelt, hvilket var både tidskrævende og tilbøjeligt til at give fejl. Den frøste version af regresionsanalyse blev for første gang nævnt i en artikel af Francis Galton i år 1886. Francis Galton var en engelsk videnskabsmand. Francis Galton var blandt andet kendt for at være opfinderen af fingeraftryks identificering. Den metode som Francis Galton beskrev, er i dag kendt som Regression mod gennemsnittet. Begræbet beskriver at hvis en variabel er langt fra gennemsnittet, så vil den næste værdi af samme variabel være tættere på gennemsnittet. Galton målte højden på 250 forældre og deres 930 voksene børn. Han justerede møderenes højde ved at gange med 1,08 Forældernes højde var morens og farens højde delt med to. Hr. Galton sikere sig at der ikke vare en systemmatisk tendenst til at høje mænd giftede sig med høje kvinder og at lave mænd gitede sig med lave kvinder. Plotte han sine obeservationer ind i et kordinatsystem hvor han hen af x-aksen havde Forældernes højde og ad y-aksen havde han børnenes højde. Galton troede, han havde gjort sig en stor opdagelse. Han fandt ud af at sønner af meget høje fædre ofte var højere end gemmensnittet, men dog stadig lavere end deres fædre. Det så ud som om at der var en ukendt faktor, der var skyld i at menneskets højde bevlgede sig væk fra det ekstremt høje ned til det mere normale gennemsnit. Det fænomen kaldte han ”regression towards mediocrity” (”tilbagevenden til middel-mådelighed”) % KILDE: https://lex.dk/regression_mod_gennemsnittet og https://lru.praxis.dk/Lru/microsites/hvadermatematik/hem3download/kap8_QR5b_Galton_Regression_towards_the_mean.pdf
 Selvom at Galtons opdagelse var banebryende og introducerede begræbet regression, anvendes denne metode ikke længere. Hans tilgang var basseret på specefikke observationer, så som netop højde, dette betød at man manglede den matematiske tilgang. Galtons bidrag dannede dog fundament for videreudviklingen af regressionsmetoder. I dag bygger regressionsanalyse på et stærkt matematisk og statistisk fundament. Dette fundament blev blandt andet bygget af Carl Fredrich Gauss og Adrien.Marie Legendre, der introducerede mindste kvardraters metode. Denne metode, spiller stadig en central rolle i regressionsanalyser. Der er mange fordele ved at anvende regresionsanalyse, men der er dog også en del ulemper ved det. Metoden forudsætter at dine data kan beskrives som en funktion, at dine data reelt 
 Hvad er Mindste Kvadraters Metode? Hvad kan den anvendes til? (Også praktisk!) Hvad er dens begrænsninger? (Historisk, hvad med gamle dage)
+
+
+
+\begin{equation*}
+    4b^2+44ab-68b+162a^2-416a+316
+\end{equation*}
+Dette bliver nu en funktion af to variable, hvor $a$ og $b$ er de ubekendte.
+\begin{equation*}
+    f(a,b) = 4b^2+44ab-68b+162a^2-416a+316
+\end{equation*}
+For at finde ekstrema for funktionen $f(a,b)$ skal der partielt aflededes med hensyn til $a$ og $b$.
+\begin{equation*}
+    \frac{\partial f(a,b)}{\partial a} = 324a - 416
+\end{equation*}
+\begin{equation*}
+    \frac{\partial f(a,b)}{\partial b} = 8b - 68
+\end{equation*}
+Differentialkvotienterne sættes nu til 0.
+\begin{equation*}
+    324a - 416 = 0
+\end{equation*}
+
+\begin{equation*}
+    8b - 68 = 0
+\end{equation*}
+% DETTE ER TOTALT FORKERT
