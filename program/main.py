@@ -2,7 +2,7 @@ from sympy import symbols, solve, Eq, diff
 import matplotlib.pyplot as plt
 import numpy as np 
 
-def leastSquaresMethod(data_points):
+def leastSquaresMethod(dataPoints):
     a, b = symbols('a b')
     sumA2 = 0 # Sum of a^2 
     sumB2 = 0 # Sum of b^2
@@ -10,11 +10,11 @@ def leastSquaresMethod(data_points):
     sumA = 0 # Sum of 2ax
     sumB = 0 # Sum of 2by
     sumConstant = 0
-    n = len(data_points) # Gets the number of data points
+    n = len(dataPoints) # Gets the number of data points
 
     for i in range(n): # Loops through all data points and calculates the sums
-        x = data_points[i][0] # Gets the x value of the data point
-        y = data_points[i][1] # Gets the y value of the data point
+        x = dataPoints[i][0] # Gets the x value of the data point
+        y = dataPoints[i][1] # Gets the y value of the data point
         print(f"Data point {i}: x = {x}, y = {y}") # Prints what data point is being calculated
         sumA2 += a**2 * x**2 # Adds the sum of a^2
         sumB2 += b**2      # Adds the sum of b^2
@@ -30,9 +30,10 @@ def leastSquaresMethod(data_points):
     diffA = diff(f, a) # Differentiates f to a
     diffB = diff(f, b) # Differentiates f to b
     solutions = solve([diffA, diffB], (a, b)) # Solves the equations
+    print(solutions[a], solutions[b]) # Prints the solutions
     return solutions[a], solutions[b] # Returns the solutions as a tuple containing a and b [a, b]
 
-def main(dataPoints):
+def plotter(dataPoints):
     line = leastSquaresMethod(dataPoints) # Calls the leastSquaresMethod function and stores the result in line
     slope = float(line[0])  # Gets the slope of the line
     intercept = float(line[1])  # Gets the intercept of the line
@@ -62,4 +63,33 @@ def main(dataPoints):
     plt.show() # Shows the plot
 
 dataPoints = [(1, 6), (5, 6), (6, 12), (10,10)]
-main(dataPoints)
+
+
+def main():
+    print("\t welcome to the least squares method program")
+    print("\n \t 1. Insert data points")
+    print("\n \t 2. Use default data points")
+    print("\n \t 2. Exit")
+    userInput = input("Enter your choice: ")
+    if userInput == "1":
+        print("Enter the data points")
+        dataPoints = []
+        while True:
+            x = input("Enter x value: ")
+            y = input("Enter y value: ")
+            dataPoints.append((int(x), int(y)))
+            print("Do you want to add more data points?")
+            choice = input("Enter y/n: ")
+            if choice == "n":
+                break
+        plotter(dataPoints)
+    elif userInput == "2":
+        dataPoints = [(1, 6), (5, 6), (6, 12), (10,10)]
+        plotter(dataPoints)
+    elif userInput == "3":
+        exit()
+    else:
+        print("Invalid input")
+        main()
+
+main()

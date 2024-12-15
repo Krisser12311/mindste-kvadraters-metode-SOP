@@ -13,7 +13,7 @@ For at finde den linje, der bedst passer til datasættet, skal værdierne af $a$
 
 \subsubsection{Partielt differentiation}\label{sec:PartieltDifferentiation}
 For at finde hældningen af tangenten til en funktion af to variable, skal man gå igennem en lidt længere proces end ved funktioner af en variabel. For at finde hældningen af tangenten til funktionen af en variabel, diffrencere man med hensyn til $x$. Et eksempel kunne være $f(x) = x^2$ her er $f'(x) = 2x$. Dette skyldes følgende regneregl: $a \cdot x^n$ bliver til $a \cdot n \cdot x^{n-1}$. \\ Ved funktioner af to variable krærver dette at man benytte sig af en metode kaldt: \textit{Partial differentiation}. Ved partial differentiation, tages der fat i en variabel ad gangen. Partial betyder delvis. Grunden til at dette ord anvendes er da man diffrencere mht. $x$ og $y$ i hver deres led (\cite[4]{Larsen2016}). Her undersøges, hvordan funktionen ændrer sig med hensyn til en variabel, mens den anden betragtes som konstant. Opgaven er nu at finde den partial aflededet funktionen. For at finde den partielle afledede for funktionen $f(x,y)$ startes der med at sætte en af variablerne til en konstant. I dette tilfælde sættes $y$ til en konstant. Når der diffrenceres med en funktion af en variabel, agives dette sådan: \begin{equation}\frac{d f(x)}{d x}\end{equation} Sådan er det dog ikke ved partial differentiation. Her angives det sådan: \begin{equation}\frac{\partial f(x,y)}{\partial x}\end{equation} 
-Det bløde $d$ ($partial$) angiver at der differentieres partielt. For at illustrere dette kan funktionen $f(x,y) = x^2 + 3y^2$ tages som eksempel. Målet er at finde de partielle afledede af $f(x,y)$. Først diffrenceres der med hensyn til $x$, mens $y$ dermed betragtes som en konstant. Regnereglerne forskriver at en konstant bliver til nul når den diffrenceres. Dernest anvendes regnereglen, der forskriver at \begin{math}a \cdot x^n\end{math} bliver til \begin{math}a \cdot n \cdot x^{n-1}\end{math} \cite[14]{Pihl2019}. Dermed må den partial aflededet mht. x være: 
+Det bløde $d$ ($partial$) angiver at der differentieres partielt. For at illustrere dette kan funktionen $f(x,y) = x^2 + 3y^2$ tages som eksempel. Målet er at finde de partielle afledede af $f(x,y)$. Først diffrenceres der med hensyn til $x$, mens $y$ dermed betragtes som en konstant. Regnereglerne forskriver at en konstant bliver til nul når den diffrenceres. Dernest anvendes regnereglen, der forskriver at \begin{math}a \cdot x^n\end{math} bliver til \begin{math}a \cdot n \cdot x^{n-1}\end{math} (\cite[14]{Pihl2019}). Dermed må den partial aflededet mht. x være: 
 \begin{equation}\frac{\partial f(x,y)}{\partial x} = 2x\end{equation}
 På samme måde findes den partielle afledede med hensyn til $y$ ved at betragte $x$ som konstant. Dette giver:
 \begin{equation}\frac{\partial f(x,y)}{\partial y} = 6y\end{equation}
@@ -127,7 +127,7 @@ Matematik og programmering hænger på mange måder naturligt godt sammen. Matem
 \section{Implementering af Mindste Kvadraters Metode}
 Som tidligere nævnt er en af styrkerne ved at anvende programmering dens evne til at automatisere og effektivisere beregninger. Dette er en stærkt fordel, når der arbejdes med Mindste Kvadraters Metode. Hvor det manuelt ville tage mange trin at finde den bedst passende linje, gør programmering det muligt at omsætte de matematiske beregninger til kode, der hurtigt og præcist kan håndtere selv store datasæt. Dette åbner op for en række anvendelser, lige fra praktisk dataanalyse til visualisering og optimering. I dette afsnit vil der blive fokuseret på, hvordan Mindste Kvadraters metode kan implementeres i programmering (\cite{geeksforgeeks2}). Ved at anvende en struktureret tilgang kan de matematiske formler opdeles i klare og logiske trin, som nemt kan oversættes til kode. Pseudokode fungerer som et effektivt værktøj til at beskrive denne proces på en enkel og overskuelig måde.
 
-\subsection{Pseudokode for Mindste Kvadraters Metode}
+\subsection{Pseudokode for Mindste Kvadraters Metode}\label{sec:Pseudokode}
 For at implementere Mindste Kvadraters Metode er det vigtigt at det hele tiden anvendes en struktureret tilgang, hvor de nødvendige matematiske operationer udføres trin for trin. Følgende er en pseudokode, der beskriver, hvordan Mindste Kvadraters Metode kan implementeres i programmering:
 \begin{algorithmic}[1] 
         \REQUIRE Datasæt \((x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\)
@@ -169,6 +169,51 @@ Alt i alt er programmets design med til at sikre, at det er nemt at vedligeholde
 % TODO: Læs dette igennem synes ikke at det er super godt. 
 
 \subsection{Program redegørsel}
+Programmet kan som nævnt i det foregående afsnit, skrives på forskellige måder, afhængigt af hvilket paradigme, biblioteker og sprog der anvendes. Programmet her er skrevet i Python og anvender sumPy, NumPy og mathplotlib. Programmet er ikke optimeret på en måde hvor det fylder så lidt som muligt, samt så det kører så hurtigt som muligt. Det er derimod skrevet på en måde hvor det er nemt at forstå. Programmet er skrevet på en sådan måde at det nærmest er, en til en kontra Pseudokoden beskrevet i afsnit \ref{sec:Pseudokode}. Programmet består af tre funktioner. En funktion der hedder \pythoninline{leastSquaresMethod(dataPoints)}. Den funktion beregner $a$ og $b$. Den anden funktion hedder \pythoninline{plotter(dataPoints)} den funktion har til opgave at plottet beregningerne og punkterne ind i et koordinatsystem. Tilsidst har programmet en funktion der hedder \pythoninline{main()}. Funktionen \pythoninline{main()} styre hele programmet det er herfra de andre funktioner kaldes.  \\\\ Når programmet køres møder slut bruger et user interface. Dette interface spørger ind til tre ting. Den første mulighed er bare at indsætte valgfrie datapunkter, den anden muligehed er at anvende et forprogrammeret datasæt og den sidste muligehed er at lukke programmet. Det er en nødvendighed at have en exit funktion da funktionen \pythoninline{main()} er rekursiv og derfor kalder sig selv, i tilfælde at input fejl. Efter denne overordnet introduktion til programmets opbygning vil der nu blive set nærmere på, hvordan de tre centrale funktioner arbejder sammen for at implementere Mindste Kvadraters Metode. Hver funktion spiller en afgørende rolle i processen, og det er derfor relevant at gennemgå deres specifikke opgaver og sammenhæng. % Inkorporer FLOW CHART!
+\subsubsection{Gemmengang af koden for Mindste Kvadraters Metode}
+%I dette afsnit vil koden blive forklaret bid for bid. Først forklares funktion der finder $a$ og $b$ og derefter funktionen der plottet punkterne og linjen. Til sidst forklares hovedfunktionen der styrer det hele. 
+%\begin{python}
+   % from sympy import symbols, solve, Eq, diff
+  %  import matplotlib.pyplot as plt
+ %   import numpy as np 
+%\end{python}
+%Dette er den allerførste del af koden. Her importeres de nødvendige biblioteker. \pythoninline{sympy} er et bibliotek der bruges til at løse ligninger. \pythoninline{matplotlib.pyplot} er et bibliotek der bruges til at plotte grafer ind i kordinatsystener. \pythoninline{numpy} er et bibliotek der bruges til at håndterer matematitiske operationer, på arrays og matricer m.v. 
+%\begin{python}
+   % def leastSquaresMethod(data_points):
+       % a, b = symbols('a b')
+      %  sumA2 = 0
+     %   sumB2 = 0
+    %    sumAB = 0
+   %     sumA = 0
+  %      sumB = 0 
+ %       sumConstant = 0
+%        n = len(data_points)
+%\end{python}
+%Der sker en del i dette kode udrag. Først og fremmest defineres funktionen \pythoninline{leastSquaresMethod(dataPoints)}. Funktionen kræver, at den får et datasæt som input, bestående af punkter. Kravet for den måde punkterne skal være formateret på kommer i det næste kode udrag. I funktionen defineres en række variable. Disse variable bruges til at holde styr på summen af de forskellige led i ligningen. \pythoninline{n} er antallet af punkter i datasættet. Grund til at programmet ønsker at finde antallet af punkter er for at kunne løbe igennem alle punkterne i datasættet, og vide hvornår det er færdigt, så den ikke prøver at finde et punkt der ikke er der. Der dog en del der mangler at blive forklaret, nemlig linje to i dette kode udrag. I linje to kan det ses at der defineres to variable \pythoninline{a} og \pythoninline{b}. Disse variable er symbolske variable. Normalt vil python ikke kunne forstå hvad symboler i denne form er. Python er programmeret til at forstå hvad tal og bogstaver er. Python understøtter altså ikke symbolsk matematik. Dette kan dog håndteres med biblioteket SymPy, som giver mulighed for at arbejde med symboler. SymPy opretter et objekt for hver symbolsk variabel i dette tilfælde $a$ og $b$. Disse variable repræsenterer en del af et matematisk udtryk. Disse objekter gemmes som instanser i Python og kan manipuleres, analyseres og bruges til forskellige matematiske operationer som differentiering, og løsning af ligninger (\cite{matematiskeSymboler}).
+%\begin{python}
+    %for i in range(n): 
+     %   x = dataPoints[i][0] 
+     %   y = dataPoints[i][1] 
+    %    print(f"Data point {i}: x = {x}, y = {y}") 
+    %    sumA2 += a**2 * x**2 
+     %   sumB2 += b**2      
+     %   sumAB += 2*a*b*x   
+     %   sumA += 2*a*x*y   
+      %  sumB += 2*b*y    
+      %  sumConstant += 2*y 
+
+   % f = sumA2 + sumB2 + sumAB - sumA - sumB + sumConstant 
+
+    
+    %diffA = diff(f, a) 
+    %diffB = diff(f, b) 
+    %solutions = solve([diffA, diffB], (a, b)) 
+    %return solutions[a], solutions[b] 
+%\end{python}
+%I denne kodebid sker selve beregningen, der ligger til grund for Mindste Kvadraters Metode. Koden starter med en for-løkke, der gennemgår alle de datapunkter, som programmet modtager. For-løkken stopper først, når den har behandlet alle punkterne i datasættet. Koden her er meget afhængig af at få punkterne i et specefikt format. nemlig en liste af tuples, f.eks. \pythoninline{[(x_1, y_1), (x_2, y_2)]}. Hvis inputtet ikke følger dette format, vil programlogikken ikke fungere korrekt. Programmet har ikke inprogrameret nogen form for fejlhåndtering, på dette. Det skyldes at programmet som det er nu, selv formatere det når punkterne indsættes. \\\\
+%For hver omgang løkken køre beregnes bidragene fra det aktuelle punkt (\pythoninline{dataPoints[i]}) til de summer, der bruges til at opbygge slutfunktionen $f(a,b)$. Disse summer (\pythoninline{sumA2}, \pythoninline{sumB2}, \pythoninline{sumAB}, \pythoninline{sumA}, \pythoninline{sumB} og \pythoninline{sumConstant}) repræsenterer de matematiske led, der kræves for at finde den linje, der bedst beskriver datasættet. Hvert datapunkt bidrager med specifikke værdier til følgende summer: $a^2 \cdot x^2$, $b^2$, $2 \cdot a \cdot b \cdot x$, $2 \cdot a \cdot x \cdot y$, $2by$, og en konstant $y^2$. Disse summer opdateres løbende gennem løkken. Undervejs ville det være muligt at se hvordan linjen tilpasse i takt med at kvadratsumene for flere punkter beregnes. \\\\
+%Når alle punkterne er behandlet, samles de udregnede summer til en samlet funktion i programmet kaldt $f$ (\pythoninline{f = sumA2 + sumB2 + sumAB - sumA - sumB + sumConstant}). Denne funktion repræsenterer summen af kvadraternes arealer, som skal minimeres for at finde den bedst passende linje. For at finde det sted hvor kvadraternes areal er mindst skal der som sagt tages partielt afledede af funktionen $f(a,b)$ med hensyn til $a$ og $b$. Differentiation er dog ikke en indbygget funktion i Python. Derfor bruges biblioteket SymPy til at beregne de partielle differentialkvotienter. SymPy beregner $\frac{\partial f}{\partial a}$ og $\frac{\partial f}{\partial b}$, hvilket resulterer i to ligninger. Disse ligninger løses derefter med hensyn til $a$ og $b$ ved hjælp af SymPy's \pythoninline{solve}-funktion. Til sidst returnerer funktionen løsningerne for $a$ og $b$ som en tuple, f.eks. \pythoninline{[a, b]}. Disse værdier repræsenterer hældningen og skæringen for den linje, der bedst passer til datasættet.
+
 % Redegør for programmet og dets funktioner (Husk at inkludere kodeeksempler)
 
 \section{Fordele og Begrænsninger}\label{sec:fordeleOgBegrensninger}
