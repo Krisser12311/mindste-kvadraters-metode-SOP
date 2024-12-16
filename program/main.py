@@ -67,8 +67,9 @@ dataPoints = [(1, 6), (5, 6), (6, 12), (10,10)]
 
 def main():
     print("\t welcome to the least squares method program")
-    print("\n \t 1. Insert data points")
-    print("\n \t 2. Use default data points")
+    print("\n \t Choose an option")
+    print("\n \t 1. Graphical output")
+    print("\n \t 2. Numerical output")
     print("\n \t 2. Exit")
     userInput = input("Enter your choice: ")
     if userInput == "1":
@@ -83,9 +84,18 @@ def main():
             if choice == "n":
                 break
         plotter(dataPoints)
+        main()
     elif userInput == "2":
-        dataPoints = [(1, 6), (5, 6), (6, 12), (10,10)]
+        while True:
+            x = input("Enter x value: ")
+            y = input("Enter y value: ")
+            dataPoints.append((int(x), int(y)))
+            print("Do you want to add more data points?")
+            choice = input("Enter y/n: ")
+            if choice == "n":
+                break
         plotter(dataPoints)
+        main()
     elif userInput == "3":
         exit()
     else:
