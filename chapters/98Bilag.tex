@@ -2,3 +2,109 @@
 
 \section{Bilag}\label{sec:Bilag}
 \subsection{Bilag 1: Koden}\label{sec:koden}
+\begin{python}
+    from sympy import symbols, solve, Eq, diff
+import matplotlib.pyplot as plt
+import numpy as np 
+import time
+
+def leastSquaresMethod(dataPoints):
+    startTime = time.time() # Gets the current time
+    a, b = symbols('a b')
+    sumA2 = 0 # Sum of a^2 
+    sumB2 = 0 # Sum of b^2
+    sumAB = 0 # Sum of 2ab
+    sumA = 0 # Sum of 2ax
+    sumB = 0 # Sum of 2by
+    sumConstant = 0
+    n = len(dataPoints) # Gets the number of data points
+
+    for i in range(n): # Loops through all data points and calculates the sums
+        x = dataPoints[i][0] # Gets the x value of the data point
+        y = dataPoints[i][1] # Gets the y value of the data point
+        print(f"Data point {i}: x = {x}, y = {y}") # Prints what data point is being calculated
+        sumA2 += a**2 * x**2 # Adds the sum of a^2
+        sumB2 += b**2      # Adds the sum of b^2
+        sumAB += 2*a*b*x   # Adds the sum of 2ab
+        sumA += 2*a*x*y   # Adds the sum of 2ax
+        sumB += 2*b*y    # Adds the sum of 2by
+        sumConstant += 2*y # Adds the sum of 2c
+
+    # Defines the function of two variabel containing the sum of squared errors
+    f = sumA2 + sumB2 + sumAB - sumA - sumB + sumConstant 
+
+    # Solve for a and b
+    diffA = diff(f, a) # Differentiates f to a
+    diffB = diff(f, b) # Differentiates f to b
+    solutions = solve([diffA, diffB], (a, b)) # Solves the equations
+    print(solutions[a], solutions[b]) # Prints the solutions
+    timeElapsed = time.time() - startTime # Calculates the time elapsed
+    print(f"Time elapsed: {timeElapsed:.3f} seconds") # Prints the time elapsed
+    return solutions[a], solutions[b] # Returns the solutions as a tuple containing a and b [a, b]
+
+def plotter(dataPoints):
+    line = leastSquaresMethod(dataPoints) # Calls the leastSquaresMethod function and stores the result in line
+    slope = float(line[0])  # Gets the slope of the line
+    intercept = float(line[1])  # Gets the intercept of the line
+    
+    for point in dataPoints: # Loops through all data points and plots them
+        plt.plot(point[0], point[1], 'ro')
+    
+    # Defince x values for the line
+    x = np.linspace(-10, 100, 100)  # Creates a interval of the line. The line will be drawn from -10 to 100
+    y = slope * x + intercept # Calculates the y values for the line
+    
+    # Plot linjen
+    plt.plot(x, y, label=f"y = {slope:.3f}x + {intercept:.3f}", color='blue') # Plots the line
+    plt.quiver(x[0], y[0], -1, -slope, angles='xy', scale_units='xy', scale=1, color='blue', width=0.003) # Adds an arrow to the start of the line
+    plt.quiver(x[-1], y[-1], 1, slope, angles='xy', scale_units='xy', scale=1, color='blue', width=0.003) # Adds an arrow to the end of the line
+    
+    # Akse og grid
+    plt.axhline(0, color='black', linewidth=0.8, linestyle='--') # Adds a horizontal line at y = 0
+    plt.axvline(0, color='black', linewidth=0.8, linestyle='--') # Adds a vertical line at x = 0
+    plt.title('Mindste Kvadraters Metode') # Adds a title to the plot
+    plt.xlabel('x - axis') # Adds a label to the x-axis
+    plt.ylabel('y - axis') # Adds a label to the y-axis
+    plt.legend() # Adds a legend to the plot
+    plt.grid() # Adds a grid to the plot
+    plt.show() # Shows the plot
+
+def main():
+    print("\t welcome to the least squares method program")
+    print("\n \t Choose an option")
+    print("\n \t 1. Graphical output")
+    print("\n \t 2. Numerical output")
+    print("\n \t 2. Exit")
+    userInput = input("Enter your choice: ")
+    if userInput == "1":
+        print("Enter the data points")
+        dataPoints = [(1, 6), (5, 6), (6, 12), (10,10)]
+        while True:
+            x = input("Enter x value: ")
+            y = input("Enter y value: ")
+            dataPoints.append((int(x), int(y)))
+            print("Do you want to add more data points?")
+            choice = input("Enter y/n: ")
+            if choice == "n":
+                break
+        plotter(dataPoints)
+        main()
+    elif userInput == "2":
+        while True:
+            x = input("Enter x value: ")
+            y = input("Enter y value: ")
+            dataPoints.append((int(x), int(y)))
+            print("Do you want to add more data points?")
+            choice = input("Enter y/n: ")
+            if choice == "n":
+                break
+        plotter(dataPoints)
+        main()
+    elif userInput == "3":
+        exit()
+    else:
+        print("Invalid input")
+        main()
+
+main()
+\end{python}

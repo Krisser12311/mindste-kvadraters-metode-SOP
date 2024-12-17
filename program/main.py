@@ -1,8 +1,10 @@
 from sympy import symbols, solve, Eq, diff
 import matplotlib.pyplot as plt
 import numpy as np 
+import time
 
 def leastSquaresMethod(dataPoints):
+    startTime = time.time() # Gets the current time
     a, b = symbols('a b')
     sumA2 = 0 # Sum of a^2 
     sumB2 = 0 # Sum of b^2
@@ -31,6 +33,8 @@ def leastSquaresMethod(dataPoints):
     diffB = diff(f, b) # Differentiates f to b
     solutions = solve([diffA, diffB], (a, b)) # Solves the equations
     print(solutions[a], solutions[b]) # Prints the solutions
+    timeElapsed = time.time() - startTime # Calculates the time elapsed
+    print(f"Time elapsed: {timeElapsed:.3f} seconds") # Prints the time elapsed
     return solutions[a], solutions[b] # Returns the solutions as a tuple containing a and b [a, b]
 
 def plotter(dataPoints):
@@ -55,7 +59,7 @@ def plotter(dataPoints):
     # Akse og grid
     plt.axhline(0, color='black', linewidth=0.8, linestyle='--') # Adds a horizontal line at y = 0
     plt.axvline(0, color='black', linewidth=0.8, linestyle='--') # Adds a vertical line at x = 0
-    plt.title('Mindste Kvadraters Metode med uendelig forlængelse') # Adds a title to the plot
+    plt.title('Mindste Kvadraters Metode') # Adds a title to the plot
     plt.xlabel('x - axis') # Adds a label to the x-axis
     plt.ylabel('y - axis') # Adds a label to the y-axis
     plt.legend() # Adds a legend to the plot
@@ -63,7 +67,7 @@ def plotter(dataPoints):
     plt.show() # Shows the plot
 
 dataPoints = [(1, 6), (5, 6), (6, 12), (10,10)]
-
+#leastSquaresMethod(dataPoints)
 
 def main():
     print("\t welcome to the least squares method program")
@@ -74,7 +78,7 @@ def main():
     userInput = input("Enter your choice: ")
     if userInput == "1":
         print("Enter the data points")
-        dataPoints = []
+        dataPoints = [(1, 6), (5, 6), (6, 12), (10,10)]
         while True:
             x = input("Enter x value: ")
             y = input("Enter y value: ")
